@@ -6,6 +6,7 @@ page 50107 PCList
     SourceTable = ParCenter;
     AccessByPermission = page PCList = X;
     AdditionalSearchTerms = 'PCList';
+    CardPageId = PCCard;
     layout
     {
         area(Content)

@@ -18,11 +18,11 @@ page 50113 VechOnLocPage
                 ShowCaption = false;
                 trigger OnDrillDown()
                 begin
-                    //MyQuery.SETFILTER(Name, '=SUMY');
-                    MyQuery.SetRange(ID, 0, 1);
+                    MyQuery.SetRange(Name, 'Sumy');
+                    //MyQuery.SetRange(ID, 0, 1);
                     MyQuery.OPEN;
                     while MyQuery.READ do begin
-                        newProcedure();
+                        MESSAGE(Text001, MyQuery.Type);
                     end;
                     MyQuery.CLOSE;
                 end;
@@ -78,8 +78,7 @@ page 50113 VechOnLocPage
 
 
 
-    local procedure newProcedure()
-    begin
-        MESSAGE(Text001, MyQuery.Type);
-    end;
+
+
+
 }

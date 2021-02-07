@@ -7,6 +7,9 @@ table 50100 DLocation
         field(1; ID; Integer)
         {
             DataClassification = ToBeClassified;
+            AutoIncrement = true;
+            Editable = false;
+            MinValue = 0;
         }
         field(2; Name; Text[10])
         {

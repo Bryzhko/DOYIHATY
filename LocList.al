@@ -6,6 +6,7 @@ page 50102 LocList
     SourceTable = DLocation;
     AccessByPermission = page LocList = X;
     AdditionalSearchTerms = 'LocList';
+    CardPageId = Location;
 
     layout
     {

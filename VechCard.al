@@ -7,12 +7,17 @@ page 50110 VechCard
     AccessByPermission = page VechCard = X;
     AdditionalSearchTerms = 'Vechicle,car,truck,microbus';
 
+
     layout
     {
         area(Content)
         {
             group(GroupName)
             {
+                field(InUse; Rec.InUse)
+                {
+                    ApplicationArea = All;
+                }
                 field(ID; Rec.ID)
                 {
                     ApplicationArea = All;
@@ -28,22 +33,39 @@ page 50110 VechCard
                     ApplicationArea = All;
 
                 }
+                field(Location; Rec.Location)
+                {
+                    ApplicationArea = All;
+                }
+                field(LocationName; Rec.LocationName)
+                {
+                    ApplicationArea = All;
+                }
+                field(ParkingCenterName; Rec.ParkingCenterName)
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
 
-    /* actions
-     {
-         area(Processing)
-         {
-             action(ActionName)
-             {
-                 ApplicationArea = All;
-
-
-             }
-         }
-     }*/
+    actions
+    {
+        area(Processing)
+        {
+            action(ActionName)
+            {
+                ApplicationArea = All;
+                trigger OnAction()
+                var
+                    Vehicle: Record Vechicle;
+                Begin
+                    Vehicle.SetRange(LocationName, 'Sumy');
+                    Page.Run(Page::VechicleLIst, Vehicle);
+                End;
+            }
+        }
+    }
 
 
 }
