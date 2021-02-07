@@ -5,9 +5,8 @@ page 50107 "My Parking Center List"
     UsageCategory = Administration;
     SourceTable = "My Parking Center";
     AccessByPermission = page "My Parking Center List" = X;
-    AdditionalSearchTerms = 'My Parking Center List';
-    CardPageId = "My Parking Center Card";
     Caption = 'Parking Center List';
+
     layout
     {
         area(Content)
@@ -24,7 +23,7 @@ page 50107 "My Parking Center List"
                     ApplicationArea = All;
                     Caption = 'Name';
                 }
-                field(Relation; Rec.Relation)
+                field(Relation; Rec."Location ID")
                 {
                     ApplicationArea = All;
                     Caption = 'Relation';
@@ -39,16 +38,6 @@ page 50107 "My Parking Center List"
                     ApplicationArea = All;
                     Caption = 'Identifier';
                 }
-            }
-        }
-    }
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
             }
         }
     }

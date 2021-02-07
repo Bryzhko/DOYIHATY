@@ -17,27 +17,27 @@ page 50119 "My Order Document"
                     ApplicationArea = All;
                     Caption = 'ID';
                 }
-                field(VechicleName; Rec.VechicleName)
+                field("Vechicle Name"; Rec."Vechicle Name")
                 {
                     ApplicationArea = All;
                     Caption = 'Vechicle Name';
                 }
-                field(CustomerName; Rec.CustomerName)
+                field("CustomerName"; Rec."Customer Name")
                 {
                     ApplicationArea = All;
                     Caption = 'Customer Name';
                 }
-                field(StartDate; Rec.StartDate)
+                field("Start Date"; Rec."Start Date")
                 {
                     ApplicationArea = All;
                     Caption = 'Start Date';
                 }
-                field(Vechicle; Rec.Vechicle)
+                field("Vechicle ID"; Rec."Vechicle ID")
                 {
                     ApplicationArea = All;
                     Caption = 'Vechicle';
                 }
-                field(EndDate; Rec.EndDate)
+                field("End Date"; Rec."End Date")
                 {
                     ApplicationArea = All;
                     Caption = 'End Date';
@@ -47,28 +47,7 @@ page 50119 "My Order Document"
                     ApplicationArea = All;
                     Caption = 'Close';
                 }
-
-
             }
         }
     }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-
-                trigger OnAction()
-                begin
-
-                end;
-            }
-        }
-    }
-
-    var
-        myInt: Integer;
 }

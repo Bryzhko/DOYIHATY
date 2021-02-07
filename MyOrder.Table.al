@@ -1,53 +1,61 @@
 table 50115 "My Order"
 {
-    DataClassification = ToBeClassified;
     Caption = 'Order';
+
     fields
     {
         field(1; ID; Integer)
         {
-            DataClassification = ToBeClassified;
             AutoIncrement = true;
             Editable = false;
             MinValue = 0;
             Caption = 'ID';
         }
-        field(2; CustomerName; Text[10])
+        field(2; "Customer Name"; Text[10])
         {
-            TableRelation = Customer;
+            TableRelation = Customer."No.";
             Caption = 'ID';
         }
-        field(6; Vechicle; Integer)
+        field(6; "Vechicle ID"; Integer)
         {
             TableRelation = "My Vechicle";
             Caption = 'Vechicle';
             trigger OnValidate()
             begin
-                CalcFields(VechicleName);
+                CalcFields("Vechicle Name");
             end;
         }
-        field(3; VechicleName; Enum "My Vechicle Type")
+        field(3; "Vechicle Name"; Enum "My Vechicle Type")
         {
             Caption = 'VechicleName';
+            Editable = false;
             FieldClass = FlowField;
-            CalcFormula = lookup("My Vechicle".Type where(ID = field(Vechicle)));
+            CalcFormula = lookup("My Vechicle"."Vechicle Type" where(ID = field("Vechicle ID")));
         }
-        field(4; StartDate; Date)
+        field(4; "Start Date"; Date)
         {
+            DataClassification = ToBeClassified;
             Caption = 'StartDate';
-            DataClassification = ToBeClassified;
+
+            trigger OnValidate()
+            begin
+                MyCheckDateProcedure();
+            end;
         }
-        field(5; EndDate; Date)
+        field(5; "End Date"; Date)
         {
-            Caption = 'EndDate';
             DataClassification = ToBeClassified;
+            Caption = 'EndDate';
+
+            trigger OnValidate()
+            begin
+                MyCheckDateProcedure();
+            end;
         }
         field(7; Close; Boolean)
         {
             Caption = 'Close';
-            DataClassification = ToBeClassified;
         }
-
     }
 
     keys
@@ -57,4 +65,14 @@ table 50115 "My Order"
             Clustered = true;
         }
     }
+
+    local procedure MyCheckDateProcedure()
+    var
+        CheckDate: Date;
+    begin
+        CheckDate := CalcDate('<-1M+CM>', Today());
+        if ((("Start Date" = CheckDate) or ("End Date" = CheckDate)) or ("Start Date" > "End Date")) then begin
+            Error('On the last day of each month, we have maintenance where it is impossible to rent or return the vehicle');
+        end;
+    end;
 }

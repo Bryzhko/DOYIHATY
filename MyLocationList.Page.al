@@ -4,8 +4,6 @@ page 50102 "My Location List"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "My Location";
-    AccessByPermission = page "My Location List" = X;
-    AdditionalSearchTerms = 'Location List';
     CardPageId = "My Location Card";
     Caption = 'Location List';
 

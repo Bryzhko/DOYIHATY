@@ -4,8 +4,6 @@ page 50111 "My Vechicle List"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "My Vechicle";
-    AccessByPermission = page "My Vechicle List" = X;
-    AdditionalSearchTerms = 'Vechicles,cars,trucks,microbuses';
     CardPageId = "My Vechicle Card";
     Caption = 'Vechicle List';
 
@@ -19,36 +17,33 @@ page 50111 "My Vechicle List"
                 {
                     Caption = 'ID';
                     ApplicationArea = All;
-
                 }
-                field(Type; Rec.Type)
+                field(Type; Rec."Vechicle Type")
                 {
                     Caption = 'Type';
                     ApplicationArea = All;
-
                 }
-                field(ParkingCenter; Rec.Relation)
+                field("Parking Center ID"; Rec."Parking Center ID")
                 {
                     Caption = 'Parling Center';
                     ApplicationArea = All;
-
                 }
-                field(Location; Rec.Location)
+                field(Location; Rec."Location ID")
                 {
                     Caption = 'Location';
                     ApplicationArea = All;
                 }
-                field(LocationName; Rec.LocationName)
+                field(LocationName; Rec."Location Name")
                 {
                     Caption = 'Location Name';
                     ApplicationArea = All;
                 }
-                field(ParkingCenterName; Rec.ParkingCenterName)
+                field(ParkingCenterName; Rec."Parking Center Name")
                 {
                     Caption = 'Parking Center Name';
                     ApplicationArea = All;
                 }
-                field(InUse; Rec.InUse)
+                field(InUse; Rec."In Use")
                 {
                     Caption = 'In Use';
                     ApplicationArea = All;
@@ -56,17 +51,4 @@ page 50111 "My Vechicle List"
             }
         }
     }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-            }
-        }
-    }
-
-
 }

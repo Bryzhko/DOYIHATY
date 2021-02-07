@@ -6,7 +6,6 @@ table 50100 "My Location"
     {
         field(1; ID; Integer)
         {
-            DataClassification = ToBeClassified;
             AutoIncrement = true;
             Editable = false;
             MinValue = 0;
@@ -14,16 +13,12 @@ table 50100 "My Location"
         }
         field(2; Name; Text[10])
         {
-            DataClassification = ToBeClassified;
             Caption = 'Name';
         }
         field(3; "Slot For Truck"; Boolean)
         {
-            DataClassification = ToBeClassified;
             Caption = 'Slot for truck';
         }
-
-
     }
 
     keys
@@ -33,6 +28,4 @@ table 50100 "My Location"
             Clustered = true;
         }
     }
-
-
 }

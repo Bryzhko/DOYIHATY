@@ -2,6 +2,7 @@
 pageextension 50115 "My Role Center" extends "Business Manager Role Center"
 {
     Caption = 'Role Center';
+
     actions
     {
         addlast(sections)

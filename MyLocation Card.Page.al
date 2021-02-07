@@ -4,9 +4,6 @@ page 50103 "My Location Card"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "My Location";
-    AccessByPermission = page "My Location Card" = X;
-    AdditionalSearchTerms = 'Location Card';
-    InsertAllowed = true;
     Caption = 'Location Card';
 
     layout
@@ -22,34 +19,13 @@ page 50103 "My Location Card"
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
-
                 }
                 field("Slot For Truck"; Rec."Slot For Truck")
                 {
                     ApplicationArea = All;
-
                 }
 
             }
         }
     }
-    /*
-       actions
-       {
-           area(Processing)
-           {
-               action(ActionName)
-               {
-                   ApplicationArea = All;
-                   trigger OnAction()
-                   begin
-                       Init();
-                       Insert();
-                   end;
-               }
-           }
-       }
-
-       var
-           myInt: Integer;*/
 }
