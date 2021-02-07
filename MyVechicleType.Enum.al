@@ -1,5 +1,6 @@
-enum 50108 VechType
+enum 50108 "My Vechicle Type"
 {
+    Caption = 'Vechicle Type';
     Extensible = true;
 
     value(1; Car) { }

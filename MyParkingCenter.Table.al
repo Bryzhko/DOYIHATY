@@ -1,6 +1,7 @@
-table 50104 ParCenter
+table 50104 "My Parking Center"
 {
     DataClassification = ToBeClassified;
+    Caption = 'Parking Center';
 
     fields
     {
@@ -10,29 +11,33 @@ table 50104 ParCenter
             AutoIncrement = true;
             Editable = false;
             MinValue = 0;
+            Caption = 'ID';
         }
         field(2; Name; Text[20])
         {
             DataClassification = ToBeClassified;
+            Caption = 'Name';
             trigger OnValidate()
             var
             begin
-                IdentProcedure;
+                MyIdentifierProcedure;
             end;
         }
         field(3; Relation; Integer)
         {
-            TableRelation = DLocation;
+            TableRelation = "My Location";
+            Caption = 'Relation';
         }
         field(4; FreePlace; Integer)
         {
             DataClassification = ToBeClassified;
+            Caption = 'Free Place';
         }
         field(5; Identifier; Text[20])
         {
             trigger OnValidate()
             begin
-                IdentProcedure();
+                MyIdentifierProcedure();
             end;
 
         }
@@ -50,7 +55,7 @@ table 50104 ParCenter
         }
     }
 
-    local procedure IdentProcedure()
+    local procedure MyIdentifierProcedure()
     begin
         Identifier := UpperCase(Name);
         while StrPos(Identifier, ' ') > 0 do

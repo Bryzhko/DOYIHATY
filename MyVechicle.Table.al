@@ -1,6 +1,7 @@
-table 50109 Vechicle
+table 50109 "My Vechicle"
 {
     DataClassification = ToBeClassified;
+    Caption = 'Vechicle';
 
     fields
     {
@@ -10,34 +11,38 @@ table 50109 Vechicle
             AutoIncrement = true;
             Editable = false;
             MinValue = 0;
+            Caption = 'ID';
         }
-        field(2; Type; Enum VechType)
+        field(2; Type; Enum "My Vechicle Type")
         {
             DataClassification = ToBeClassified;
-
+            Caption = 'Type';
         }
         field(3; Relation; Integer)
         {
-            TableRelation = ParCenter;
+            TableRelation = "My Parking Center";
+            Caption = 'Relation';
             trigger OnValidate()
             var
-                ParCenter: Record ParCenter;
+                ParkingCenter: Record "My Parking Center";
             begin
                 CalcFields(ParkingCenterName);
-                if ParCenter.Get(Relation) then begin
-                    Validate(Location, ParCenter.Relation);
+                if ParkingCenter.Get(Relation) then begin
+                    Validate(Location, ParkingCenter.Relation);
                 end;
             end;
         }
         field(6; ParkingCenterName; Text[10])
         {
             FieldClass = FlowField;
-            CalcFormula = lookup(ParCenter.Name where(ID = field(Relation)));
+            Caption = 'Parking Center Name';
+            CalcFormula = lookup("My Parking Center".Name where(ID = field(Relation)));
             Editable = false;
         }
         field(4; Location; Integer)
         {
-            TableRelation = DLocation;
+            Caption = 'Location';
+            TableRelation = "My Location";
             trigger OnValidate()
             begin
                 CalcFields(LocationName);
@@ -45,12 +50,14 @@ table 50109 Vechicle
         }
         field(5; LocationName; Text[10])
         {
+            Caption = 'Location Name';
             FieldClass = FlowField;
-            CalcFormula = lookup(DLocation.Name where(ID = field(Location)));
+            CalcFormula = lookup("My Location".Name where(ID = field(Location)));
             Editable = false;
         }
         field(7; InUse; Boolean)
         {
+            Caption = 'In use';
             DataClassification = ToBeClassified;
         }
 

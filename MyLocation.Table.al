@@ -1,6 +1,6 @@
-table 50100 DLocation
+table 50100 "My Location"
 {
-
+    Caption = 'Location';
 
     fields
     {
@@ -10,14 +10,17 @@ table 50100 DLocation
             AutoIncrement = true;
             Editable = false;
             MinValue = 0;
+            Caption = 'ID';
         }
         field(2; Name; Text[10])
         {
             DataClassification = ToBeClassified;
+            Caption = 'Name';
         }
-        field(3; SlotForTruck; Boolean)
+        field(3; "Slot For Truck"; Boolean)
         {
             DataClassification = ToBeClassified;
+            Caption = 'Slot for truck';
         }
 
 
@@ -27,7 +30,7 @@ table 50100 DLocation
     {
         key(PK; ID)
         {
-            //Clustered = true;
+            Clustered = true;
         }
     }
 

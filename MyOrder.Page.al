@@ -1,50 +1,54 @@
-page 50111 VechicleLIst
+page 50119 "My Order Document"
 {
-    PageType = List;
+    PageType = Document;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = Vechicle;
-    AccessByPermission = page VechicleList = X;
-    AdditionalSearchTerms = 'Vechicles,cars,trucks,microbuses';
-    CardPageId = VechCard;
+    SourceTable = "My Order";
+    Caption = 'Order Document';
 
     layout
     {
         area(Content)
         {
-            repeater(control)
+            group(GroupName)
             {
                 field(ID; Rec.ID)
                 {
                     ApplicationArea = All;
+                    Caption = 'ID';
+                }
+                field(VechicleName; Rec.VechicleName)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Vechicle Name';
+                }
+                field(CustomerName; Rec.CustomerName)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Customer Name';
+                }
+                field(StartDate; Rec.StartDate)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Start Date';
+                }
+                field(Vechicle; Rec.Vechicle)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Vechicle';
+                }
+                field(EndDate; Rec.EndDate)
+                {
+                    ApplicationArea = All;
+                    Caption = 'End Date';
+                }
+                field(Close; Rec.Close)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Close';
+                }
 
-                }
-                field(Type; Rec.Type)
-                {
-                    ApplicationArea = All;
 
-                }
-                field(ParkingCenter; Rec.Relation)
-                {
-                    ApplicationArea = All;
-
-                }
-                field(Location; Rec.Location)
-                {
-                    ApplicationArea = All;
-                }
-                field(LocationName; Rec.LocationName)
-                {
-                    ApplicationArea = All;
-                }
-                field(ParkingCenterName; Rec.ParkingCenterName)
-                {
-                    ApplicationArea = All;
-                }
-                field(InUse; Rec.InUse)
-                {
-                    ApplicationArea = All;
-                }
             }
         }
     }
@@ -56,9 +60,15 @@ page 50111 VechicleLIst
             action(ActionName)
             {
                 ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+
+                end;
             }
         }
     }
 
-
+    var
+        myInt: Integer;
 }

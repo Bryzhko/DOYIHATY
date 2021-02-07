@@ -1,7 +1,7 @@
 
-pageextension 50115 RoleCenterPageExt extends "Business Manager Role Center"
+pageextension 50115 "My Role Center" extends "Business Manager Role Center"
 {
-
+    Caption = 'Role Center';
     actions
     {
         addlast(sections)
@@ -13,22 +13,22 @@ pageextension 50115 RoleCenterPageExt extends "Business Manager Role Center"
                 {
                     action("Location List")
                     {
-                        RunObject = page "LocList";
+                        RunObject = page "My Location List";
                         ApplicationArea = All;
                     }
                     action("Parking Center List")
                     {
-                        RunObject = page "PCList";
+                        RunObject = page "My Parking Center List";
                         ApplicationArea = All;
                     }
                     action("Vechicle List")
                     {
-                        RunObject = page "VechicleList";
+                        RunObject = page "My Vechicle List";
                         ApplicationArea = All;
                     }
                     action("List of orders")
                     {
-                        RunObject = page "OrderList";
+                        RunObject = page "My Order List";
                         ApplicationArea = All;
                     }
 
@@ -37,33 +37,23 @@ pageextension 50115 RoleCenterPageExt extends "Business Manager Role Center"
                 {
                     action("Location")
                     {
-                        RunObject = page "Location";
+                        RunObject = page "My Location Card";
                         ApplicationArea = All;
                     }
                     action("Parking Center")
                     {
-                        RunObject = page "PCCard";
+                        RunObject = page "My Parking Center Card";
                         ApplicationArea = All;
                     }
                     action("Vechicle")
                     {
-                        RunObject = page "VechCard";
+                        RunObject = page "My vechicle Card";
                         ApplicationArea = All;
                     }
                 }
-                action("Vechicle on Location")
-                {
-                    RunObject = page "VechOnLocPage";
-                    ApplicationArea = All;
-                }
-                action("Free vechicle on all location")
-                {
-                    RunObject = page "AllVech";
-                    ApplicationArea = All;
-                }
                 action("Order")
                 {
-                    RunObject = page "OrderPage";
+                    RunObject = page "My Order Document";
                     ApplicationArea = All;
                 }
             }

@@ -1,48 +1,56 @@
-page 50110 VechCard
+page 50111 "My Vechicle List"
 {
-    PageType = Card;
+    PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = Vechicle;
-    AccessByPermission = page VechCard = X;
-    AdditionalSearchTerms = 'Vechicle,car,truck,microbus';
-
+    SourceTable = "My Vechicle";
+    AccessByPermission = page "My Vechicle List" = X;
+    AdditionalSearchTerms = 'Vechicles,cars,trucks,microbuses';
+    CardPageId = "My Vechicle Card";
+    Caption = 'Vechicle List';
 
     layout
     {
         area(Content)
         {
-            group(GroupName)
+            repeater(control)
             {
-                field(InUse; Rec.InUse)
-                {
-                    ApplicationArea = All;
-                }
                 field(ID; Rec.ID)
                 {
+                    Caption = 'ID';
                     ApplicationArea = All;
 
                 }
                 field(Type; Rec.Type)
                 {
+                    Caption = 'Type';
                     ApplicationArea = All;
 
                 }
                 field(ParkingCenter; Rec.Relation)
                 {
+                    Caption = 'Parling Center';
                     ApplicationArea = All;
 
                 }
                 field(Location; Rec.Location)
                 {
+                    Caption = 'Location';
                     ApplicationArea = All;
                 }
                 field(LocationName; Rec.LocationName)
                 {
+                    Caption = 'Location Name';
                     ApplicationArea = All;
                 }
                 field(ParkingCenterName; Rec.ParkingCenterName)
                 {
+                    Caption = 'Parking Center Name';
+                    ApplicationArea = All;
+                }
+                field(InUse; Rec.InUse)
+                {
+                    Caption = 'In Use';
                     ApplicationArea = All;
                 }
             }
@@ -56,13 +64,6 @@ page 50110 VechCard
             action(ActionName)
             {
                 ApplicationArea = All;
-                trigger OnAction()
-                var
-                    Vehicle: Record Vechicle;
-                Begin
-                    Vehicle.SetRange(LocationName, 'Sumy');
-                    Page.Run(Page::VechicleLIst, Vehicle);
-                End;
             }
         }
     }

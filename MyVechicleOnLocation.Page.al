@@ -1,9 +1,9 @@
-page 50113 VechOnLocPage
+/*(page 50113 VechOnLocPage
 {
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = DLocation;
+    SourceTable = "My Location";
     AccessByPermission = page VechOnLocPage = X;
     AdditionalSearchTerms = 'Vechicle on location';
     layout
@@ -45,17 +45,9 @@ page 50113 VechOnLocPage
             }
         }
     }
-    /* trigger OnAfterGetCurrRecord()
-     begin
-         MyQuery.OPEN;
-         while MyQuery.READ do begin
-             MESSAGE(Text001, MyQuery.Type);
-         end;
-         MyQuery.CLOSE;
-     end;*/
+    
 
     var
-        //Index : Integer ;
         Sumy: Text;
         MyQuery: Query VechicleOnLocation;
         ArrayOfText: array[10] of Text[10];
@@ -64,21 +56,10 @@ page 50113 VechOnLocPage
         VType: enum VechType;
 
 
-    /* procedure SumyVechicle(): Text
-     begin
-         MyQuery.OPEN;
-         while MyQuery.READ do begin
-             if MyQuery.Name = 'Sumy'
-            then
-                 MESSAGE(Text001, MyQuery.Type);
-             // exit();
-         end;
-         MyQuery.CLOSE;
-     end;*/
+    
 
 
 
 
 
-
-}
+}*/

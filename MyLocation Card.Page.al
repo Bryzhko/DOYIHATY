@@ -1,12 +1,13 @@
-page 50103 Location
+page 50103 "My Location Card"
 {
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = DLocation;
-    AccessByPermission = page Location = X;
-    AdditionalSearchTerms = 'Location';
+    SourceTable = "My Location";
+    AccessByPermission = page "My Location Card" = X;
+    AdditionalSearchTerms = 'Location Card';
     InsertAllowed = true;
+    Caption = 'Location Card';
 
     layout
     {
@@ -23,7 +24,7 @@ page 50103 Location
                     ApplicationArea = All;
 
                 }
-                field(SFT; Rec.SlotForTruck)
+                field("Slot For Truck"; Rec."Slot For Truck")
                 {
                     ApplicationArea = All;
 
