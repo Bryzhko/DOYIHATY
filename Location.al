@@ -17,7 +17,6 @@ page 50103 Location
                 field(ID; Rec.ID)
                 {
                     ApplicationArea = All;
-
                 }
                 field(Name; Rec.Name)
                 {

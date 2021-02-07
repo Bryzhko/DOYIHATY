@@ -26,6 +26,12 @@ pageextension 50115 RoleCenterPageExt extends "Business Manager Role Center"
                         RunObject = page "VechicleList";
                         ApplicationArea = All;
                     }
+                    action("List of orders")
+                    {
+                        RunObject = page "OrderList";
+                        ApplicationArea = All;
+                    }
+
                 }
                 group("Cards")
                 {
@@ -53,6 +59,11 @@ pageextension 50115 RoleCenterPageExt extends "Business Manager Role Center"
                 action("Free vechicle on all location")
                 {
                     RunObject = page "AllVech";
+                    ApplicationArea = All;
+                }
+                action("Order")
+                {
+                    RunObject = page "OrderPage";
                     ApplicationArea = All;
                 }
             }

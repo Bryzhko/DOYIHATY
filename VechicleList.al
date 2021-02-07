@@ -6,6 +6,7 @@ page 50111 VechicleLIst
     SourceTable = Vechicle;
     AccessByPermission = page VechicleList = X;
     AdditionalSearchTerms = 'Vechicles,cars,trucks,microbuses';
+    CardPageId = VechCard;
 
     layout
     {
@@ -27,6 +28,22 @@ page 50111 VechicleLIst
                 {
                     ApplicationArea = All;
 
+                }
+                field(Location; Rec.Location)
+                {
+                    ApplicationArea = All;
+                }
+                field(LocationName; Rec.LocationName)
+                {
+                    ApplicationArea = All;
+                }
+                field(ParkingCenterName; Rec.ParkingCenterName)
+                {
+                    ApplicationArea = All;
+                }
+                field(InUse; Rec.InUse)
+                {
+                    ApplicationArea = All;
                 }
             }
         }

@@ -7,12 +7,20 @@ table 50104 ParCenter
         field(1; ID; Integer)
         {
             DataClassification = ToBeClassified;
+            AutoIncrement = true;
+            Editable = false;
+            MinValue = 0;
         }
-        field(2; Name; Text[10])
+        field(2; Name; Text[20])
         {
             DataClassification = ToBeClassified;
+            trigger OnValidate()
+            var
+            begin
+                IdentProcedure;
+            end;
         }
-        field(3; Relation; Code[20])
+        field(3; Relation; Integer)
         {
             TableRelation = DLocation;
         }
@@ -20,9 +28,13 @@ table 50104 ParCenter
         {
             DataClassification = ToBeClassified;
         }
-        field(5; Identifier; Text[10])
+        field(5; Identifier; Text[20])
         {
-            DataClassification = ToBeClassified;
+            trigger OnValidate()
+            begin
+                IdentProcedure();
+            end;
+
         }
     }
 
@@ -38,6 +50,11 @@ table 50104 ParCenter
         }
     }
 
-
+    local procedure IdentProcedure()
+    begin
+        Identifier := UpperCase(Name);
+        while StrPos(Identifier, ' ') > 0 do
+            Identifier := (DelStr(Identifier, StrPos(Identifier, ' ')) + '-' + CopyStr(Identifier, StrPos(Identifier, ' ') + StrLen(' ')));
+    end;
 
 }
