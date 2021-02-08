@@ -1,26 +1,19 @@
 page 50119 "My Order Document"
 {
     PageType = Document;
-    ApplicationArea = All;
-    UsageCategory = Administration;
-    SourceTable = "My Order";
+    SourceTable = "My Order Header";
     Caption = 'Order Document';
 
     layout
     {
         area(Content)
         {
-            group(GroupName)
+            group(GeneraL)
             {
                 field(ID; Rec.ID)
                 {
                     ApplicationArea = All;
                     Caption = 'ID';
-                }
-                field("Vechicle Name"; Rec."Vechicle Name")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Vechicle Name';
                 }
                 field("CustomerName"; Rec."Customer Name")
                 {
@@ -32,11 +25,17 @@ page 50119 "My Order Document"
                     ApplicationArea = All;
                     Caption = 'Start Date';
                 }
+                /*field("Vechicle Name"; Rec."Vechicle Name")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Vechicle Name';
+                }
+
                 field("Vechicle ID"; Rec."Vechicle ID")
                 {
                     ApplicationArea = All;
                     Caption = 'Vechicle';
-                }
+                }*/
                 field("End Date"; Rec."End Date")
                 {
                     ApplicationArea = All;
@@ -46,6 +45,13 @@ page 50119 "My Order Document"
                 {
                     ApplicationArea = All;
                     Caption = 'Close';
+                }
+            }
+            group(Lines)
+            {
+                part("Vechicle List part"; "My Order List Part")
+                {
+                    SubPageLink = "Order Header ID" = field(ID);
                 }
             }
         }
