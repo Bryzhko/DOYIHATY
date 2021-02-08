@@ -3,7 +3,7 @@ page 50120 "My Order List"
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = "My Order";
+    SourceTable = "My Order Header";
     CardPageId = "My Order Document";
     Caption = 'Order List';
 
@@ -21,11 +21,6 @@ page 50120 "My Order List"
                         ApplicationArea = All;
                         Caption = 'ID';
                     }
-                    field("Vechicle Name"; Rec."Vechicle Name")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Vechicle Name';
-                    }
                     field("CustomerName"; Rec."Customer Name")
                     {
                         ApplicationArea = All;
@@ -36,11 +31,17 @@ page 50120 "My Order List"
                         ApplicationArea = All;
                         Caption = 'Start Date';
                     }
-                    field("Vechicle ID"; Rec."Vechicle ID")
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Vechicle';
-                    }
+                    /* field("Vechicle Name"; Rec."Vechicle Name")
+                     {
+                         ApplicationArea = All;
+                         Caption = 'Vechicle Name';
+                     }
+
+                     field("Vechicle ID"; Rec."Vechicle ID")
+                     {
+                         ApplicationArea = All;
+                         Caption = 'Vechicle';
+                     }*/
                     field("End Date"; Rec."End Date")
                     {
                         ApplicationArea = All;
