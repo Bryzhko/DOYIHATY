@@ -13,11 +13,6 @@ page 50111 "My Vechicle List"
         {
             repeater(control)
             {
-                field(ID; Rec.ID)
-                {
-                    Caption = 'ID';
-                    ApplicationArea = All;
-                }
                 field(Type; Rec."Vechicle Type")
                 {
                     Caption = 'Type';
@@ -25,7 +20,7 @@ page 50111 "My Vechicle List"
                 }
                 field("Parking Center ID"; Rec."Parking Center ID")
                 {
-                    Caption = 'Parling Center';
+                    Caption = 'Parking Center';
                     ApplicationArea = All;
                 }
                 field(Location; Rec."Location ID")

@@ -28,6 +28,7 @@ table 50109 "My Vechicle"
                 if ParkingCenter.Get("Parking Center ID") then begin
                     Validate("Location ID", ParkingCenter."Location ID");
                 end;
+                CheckForTruckSlot();
             end;
         }
         field(6; "Parking Center Name"; Text[20])
@@ -41,12 +42,13 @@ table 50109 "My Vechicle"
         {
             Caption = 'Location';
             TableRelation = "My Location";
+
             trigger OnValidate()
             begin
                 CalcFields("Location Name");
             end;
         }
-        field(5; "Location Name"; Text[20])
+        field(5; "Location Name"; Text[15])
         {
             Caption = 'Location Name';
             FieldClass = FlowField;
@@ -56,12 +58,6 @@ table 50109 "My Vechicle"
         field(7; "In Use"; Boolean)
         {
             Caption = 'In use';
-            // Editable = false;
-            DataClassification = ToBeClassified;
-            /* trigger OnValidate()
-             begin
-                 MyInUseProcedure();
-             end;*/
         }
 
     }
@@ -77,17 +73,16 @@ table 50109 "My Vechicle"
 
         }
     }
-
-    /*procedure MyInUseProcedure()
+    local procedure CheckForTruckSlot()
     var
-        Order: Record "My Order";
+        MyLocation: Record "My Location";
+        IntEnumOrdinalValue: Integer;
     begin
-        if Order.Get(Id)
-        then begin
-            if (Order.Close = true) and (Order.Vechicle = ID) then begin
-                InUse := true;
-            end;
+        IntEnumOrdinalValue := "Vechicle Type".AsInteger();
+        MyLocation.Get("Location ID");
+        if ((MyLocation."Slot For Truck" = false) and ("Vechicle Type"::Truck = 3)) then begin
+            Error('Truck is not allowed for this location');
         end;
-    end;*/
+    end;
 }
 

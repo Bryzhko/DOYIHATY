@@ -16,11 +16,6 @@ page 50120 "My Order List"
             {
                 repeater(rep)
                 {
-                    field(ID; Rec.ID)
-                    {
-                        ApplicationArea = All;
-                        Caption = 'ID';
-                    }
                     field("CustomerName"; Rec."Customer Name")
                     {
                         ApplicationArea = All;

@@ -24,7 +24,7 @@ page 50110 "My Vechicle Card"
                 }
                 field("Parking Center ID"; Rec."Parking Center ID")
                 {
-                    Caption = 'Parling Center';
+                    Caption = 'Parking Center';
                     ApplicationArea = All;
                 }
                 field(Location; Rec."Location ID")
@@ -55,7 +55,7 @@ page 50110 "My Vechicle Card"
     {
         area(Processing)
         {
-            action(ActionName)
+            action(Sumy)
             {
                 ApplicationArea = All;
                 trigger OnAction()

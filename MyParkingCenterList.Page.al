@@ -13,11 +13,6 @@ page 50107 "My Parking Center List"
         {
             repeater(control)
             {
-                field(ID; Rec.ID)
-                {
-                    ApplicationArea = All;
-                    Caption = 'Id';
-                }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;

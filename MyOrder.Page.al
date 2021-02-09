@@ -51,7 +51,9 @@ page 50119 "My Order Document"
             {
                 part("Vechicle List part"; "My Order List Part")
                 {
+                    ApplicationArea = All;
                     SubPageLink = "Order Header ID" = field(ID);
+                    SubPageView = sorting(ID, "Order Header ID");
                 }
             }
         }

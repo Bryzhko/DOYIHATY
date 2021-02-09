@@ -1,10 +1,9 @@
 page 50121 "My Order List Part"
 {
     PageType = ListPart;
-    //ApplicationArea = All;
-    //UsageCategory = Administration;
     SourceTable = "My Order Line";
-    //CardPageId = "My Vechicle Card";
+    AutoSplitKey = true;
+    DelayedInsert = true;
     Caption = 'Order List Part';
 
     layout
@@ -14,11 +13,6 @@ page 50121 "My Order List Part"
             repeater(control)
             {
                 field(ID; Rec.ID)
-                {
-                    Caption = 'ID';
-                    ApplicationArea = All;
-                }
-                field("Order Header ID"; Rec."Order Header ID")
                 {
                     ApplicationArea = All;
                 }

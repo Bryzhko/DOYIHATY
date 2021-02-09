@@ -11,7 +11,7 @@ table 50100 "My Location"
             MinValue = 0;
             Caption = 'ID';
         }
-        field(2; Name; Text[10])
+        field(2; Name; Text[15])
         {
             Caption = 'Name';
         }

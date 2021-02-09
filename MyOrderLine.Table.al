@@ -6,11 +6,15 @@ table 50120 "My Order Line"
     {
         field(1; ID; Integer)
         {
+            AutoIncrement = true;
+            MinValue = 0;
             Caption = 'ID';
+            Editable = false;
         }
         field(2; "Order Header ID"; Integer)
         {
             Caption = 'Order Header ID';
+            TableRelation = "My Order Header".ID;
         }
         field(3; "Vechicle ID"; Integer)
         {
@@ -33,7 +37,7 @@ table 50120 "My Order Line"
 
     keys
     {
-        key(PK; ID)
+        key(PK; "Order Header ID", ID)
         {
             Clustered = true;
         }

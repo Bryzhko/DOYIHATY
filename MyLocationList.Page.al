@@ -13,11 +13,6 @@ page 50102 "My Location List"
         {
             repeater(control)
             {
-                field(ID; Rec.ID)
-                {
-                    ApplicationArea = All;
-                    Caption = 'ID';
-                }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
