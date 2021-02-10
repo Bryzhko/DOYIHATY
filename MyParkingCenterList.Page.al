@@ -1,52 +1,37 @@
-page 50107 PCList
+page 50107 "My Parking Center List"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = ParCenter;
-    AccessByPermission = page PCList = X;
-    AdditionalSearchTerms = 'PCList';
-    CardPageId = PCCard;
+    SourceTable = "My Parking Center";
+    Caption = 'Parking Center List';
+    CardPageId = "My Parking Center Card";
     layout
     {
         area(Content)
         {
             repeater(control)
             {
-                field(ID; Rec.ID)
-                {
-                    ApplicationArea = All;
-
-                }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
-
+                    Caption = 'Name';
                 }
-                field(Relation; Rec.Relation)
+                field(Relation; Rec."Location ID")
                 {
                     ApplicationArea = All;
-
+                    Caption = 'Relation';
                 }
                 field(FreePlace; Rec.FreePlace)
                 {
                     ApplicationArea = All;
-
+                    Caption = 'Free Place';
                 }
                 field(Identifier; Rec.Identifier)
                 {
                     ApplicationArea = All;
+                    Caption = 'Identifier';
                 }
-            }
-        }
-    }
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
             }
         }
     }

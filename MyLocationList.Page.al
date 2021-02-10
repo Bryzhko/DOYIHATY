@@ -1,12 +1,11 @@
-page 50102 LocList
+page 50102 "My Location List"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = DLocation;
-    AccessByPermission = page LocList = X;
-    AdditionalSearchTerms = 'LocList';
-    CardPageId = Location;
+    SourceTable = "My Location";
+    CardPageId = "My Location Card";
+    Caption = 'Location List';
 
     layout
     {
@@ -14,20 +13,15 @@ page 50102 LocList
         {
             repeater(control)
             {
-                field(ID; Rec.ID)
-                {
-                    ApplicationArea = All;
-
-                }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
-
+                    Caption = 'Name';
                 }
-                field(SlotForTruck; Rec.SlotForTruck)
+                field(SlotForTruck; Rec."Slot For Truck")
                 {
                     ApplicationArea = All;
-
+                    Caption = 'Slot for truck';
                 }
             }
         }
