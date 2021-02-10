@@ -25,17 +25,6 @@ page 50119 "My Order Document"
                     ApplicationArea = All;
                     Caption = 'Start Date';
                 }
-                /*field("Vechicle Name"; Rec."Vechicle Name")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Vechicle Name';
-                }
-
-                field("Vechicle ID"; Rec."Vechicle ID")
-                {
-                    ApplicationArea = All;
-                    Caption = 'Vechicle';
-                }*/
                 field("End Date"; Rec."End Date")
                 {
                     ApplicationArea = All;

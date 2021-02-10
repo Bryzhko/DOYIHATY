@@ -16,23 +16,6 @@ table 50115 "My Order Header"
             TableRelation = Customer."No.";
             Caption = 'Customer Name';
         }
-        /* field(6; "Vechicle ID"; Integer)
-         {
-             TableRelation = "My Vechicle";
-             Caption = 'Vechicle';
-
-             trigger OnValidate()
-             begin
-                 CalcFields("Vechicle Name");
-             end;
-         }
-         field(3; "Vechicle Name"; Enum "My Vechicle Type")
-         {
-             Caption = 'VechicleName';
-             Editable = false;
-             FieldClass = FlowField;
-             CalcFormula = lookup("My Vechicle"."Vechicle Type" where(ID = field("Vechicle ID")));
-         }*/
         field(4; "Start Date"; Date)
         {
             DataClassification = ToBeClassified;

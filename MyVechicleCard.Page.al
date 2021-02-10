@@ -42,11 +42,11 @@ page 50110 "My Vechicle Card"
                     Caption = 'Parking Center Name';
                     ApplicationArea = All;
                 }
-                field(InUse; Rec."In Use")
+                /*field(InUse; Rec."In Use")
                 {
                     Caption = 'In Use';
                     ApplicationArea = All;
-                }
+                }*/
             }
         }
     }

@@ -80,7 +80,7 @@ table 50109 "My Vechicle"
     begin
         IntEnumOrdinalValue := "Vechicle Type".AsInteger();
         MyLocation.Get("Location ID");
-        if ((MyLocation."Slot For Truck" = false) and ("Vechicle Type"::Truck = 3)) then begin
+        if ((MyLocation."Slot For Truck" = false) and (IntEnumOrdinalValue = 3)) then begin
             Error('Truck is not allowed for this location');
         end;
     end;

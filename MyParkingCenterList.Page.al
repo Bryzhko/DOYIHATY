@@ -4,9 +4,8 @@ page 50107 "My Parking Center List"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "My Parking Center";
-    AccessByPermission = page "My Parking Center List" = X;
     Caption = 'Parking Center List';
-
+    CardPageId = "My Parking Center Card";
     layout
     {
         area(Content)

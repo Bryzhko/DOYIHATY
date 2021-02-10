@@ -15,6 +15,7 @@ table 50104 "My Parking Center"
         field(2; Name; Text[20])
         {
             Caption = 'Name';
+
             trigger OnValidate()
             var
             begin

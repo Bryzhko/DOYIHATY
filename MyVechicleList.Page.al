@@ -38,11 +38,11 @@ page 50111 "My Vechicle List"
                     Caption = 'Parking Center Name';
                     ApplicationArea = All;
                 }
-                field(InUse; Rec."In Use")
+                /*field(InUse; Rec."In Use")
                 {
                     Caption = 'In Use';
                     ApplicationArea = All;
-                }
+                }*/
             }
         }
     }
