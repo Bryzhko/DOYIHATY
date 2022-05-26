@@ -1,10 +1,10 @@
-query 50112 VechicleOnLocation
+query 59800 VechicleOnLocation
 {
     QueryType = Normal;
 
     elements
     {
-        dataitem(DLocation; DLocation)
+        dataitem(DLocation; "DHT Location")
         {
             column(ID; ID)
             {
@@ -16,19 +16,17 @@ query 50112 VechicleOnLocation
             }
             //DataItemTableFilter = Name = const('SUMY');
             //DataItemTableFilter = ID = const(1);
-            dataitem(ParCenter; ParCenter)
+            dataitem(ParCenter; "DHT Parking Center")
             {
-                DataItemLink = Relation = DLocation.Name;
+                DataItemLink = "Location ID" = DLocation.Name;
                 // SqlJoinType = RightOuterJoin;
-                dataitem(Vechicle; Vechicle)
+                dataitem(Vechicle; "DHT Vechicle")
                 {
-                    DataItemLink = Relation = ParCenter.Name;
+                    DataItemLink = "Parking Center" = ParCenter.Name;
                     SqlJoinType = RightOuterJoin;
                     column(Type; Type)
                     {
-
                     }
-
                 }
                 /*filter(FilterName; Name)
                 {

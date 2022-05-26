@@ -1,42 +1,33 @@
-page 50106 PCCard
+page 59803 "DHT Parking Center"
 {
-    PageType = Card;
     ApplicationArea = All;
+    Caption = 'Parking Center';
+    PageType = Card;
+    SourceTable = "DHT Parking Center";
     UsageCategory = Administration;
-    SourceTable = ParCenter;
-    AccessByPermission = page PCCard = X;
-    AdditionalSearchTerms = 'PCCard';
+
     layout
     {
         area(Content)
         {
             group(GroupName)
             {
-                field(ID; Rec.ID)
-                {
-                    ApplicationArea = All;
-
-                }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
-
                 }
-                field(Relation; Rec.Relation)
+                field("Location ID"; Rec."Location ID")
                 {
                     ApplicationArea = All;
-
                 }
-                field(FreePlace; Rec.FreePlace)
+                field("Location Name"; Rec."Location Name")
                 {
                     ApplicationArea = All;
-
                 }
                 field(Identifier; Rec.Identifier)
                 {
                     ApplicationArea = All;
                 }
-
             }
         }
     }

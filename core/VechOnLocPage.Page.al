@@ -1,16 +1,16 @@
-page 50113 VechOnLocPage
+page 59807 VechOnLocPage
 {
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = DLocation;
+    SourceTable = "DHT Location";
     AccessByPermission = page VechOnLocPage = X;
     AdditionalSearchTerms = 'Vechicle on location';
+
     layout
     {
         area(Content)
         {
-
             field(Sumy; SumyLabel)
             {
                 ApplicationArea = All;
@@ -26,14 +26,9 @@ page 50113 VechOnLocPage
                     end;
                     MyQuery.CLOSE;
                 end;
-
             }
-
-
         }
     }
-
-
 
     actions
     {
@@ -61,9 +56,7 @@ page 50113 VechOnLocPage
         ArrayOfText: array[10] of Text[10];
         Text001: Label ' Type : %1';
         SumyLabel: Label 'Label for Sumy';
-        VType: enum VechType;
-
-
+        VType: enum "DHT Vechicle Type";
     /* procedure SumyVechicle(): Text
      begin
          MyQuery.OPEN;
@@ -75,10 +68,4 @@ page 50113 VechOnLocPage
          end;
          MyQuery.CLOSE;
      end;*/
-
-
-
-
-
-
 }

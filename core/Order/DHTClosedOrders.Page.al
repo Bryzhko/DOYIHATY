@@ -1,64 +1,50 @@
-page 50111 VechicleLIst
+page 59811 "DHT Closed Orders"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
-    SourceTable = Vechicle;
-    AccessByPermission = page VechicleList = X;
-    AdditionalSearchTerms = 'Vechicles,cars,trucks,microbuses';
-    CardPageId = VechCard;
+    InsertAllowed = false;
+    Editable = false;
+    DeleteAllowed = false;
+    SourceTable = "DHT Order";
+    CardPageId = "DHT Order";
+    SourceTableView = where(Closed = const(true));
 
     layout
     {
         area(Content)
         {
-            repeater(control)
+            repeater(Group)
             {
                 field(ID; Rec.ID)
                 {
                     ApplicationArea = All;
-
                 }
-                field(Type; Rec.Type)
-                {
-                    ApplicationArea = All;
-
-                }
-                field(ParkingCenter; Rec.Relation)
-                {
-                    ApplicationArea = All;
-
-                }
-                field(Location; Rec.Location)
+                field("Customer Name"; Rec."Customer Name")
                 {
                     ApplicationArea = All;
                 }
-                field(LocationName; Rec.LocationName)
+                field("Location Name"; Rec."Location Name")
                 {
                     ApplicationArea = All;
                 }
-                field(ParkingCenterName; Rec.ParkingCenterName)
+                field("Parking Center Name"; Rec."Parking Center Name")
                 {
                     ApplicationArea = All;
                 }
-                field(InUse; Rec.InUse)
+                field("Starting Date"; Rec."Starting Date")
+                {
+                    ApplicationArea = All;
+                }
+                field("Ending Date"; Rec."Ending Date")
+                {
+                    ApplicationArea = All;
+                }
+                field(Amount; Rec.Amount)
                 {
                     ApplicationArea = All;
                 }
             }
         }
     }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-            }
-        }
-    }
-
-
 }

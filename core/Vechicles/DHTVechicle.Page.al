@@ -1,52 +1,42 @@
-page 50107 PCList
+page 59805 "DHT Vechicle"
 {
-    PageType = List;
     ApplicationArea = All;
+    PageType = Card;
+    Caption = 'Vechicle';
+    SourceTable = "DHT Vechicle";
     UsageCategory = Administration;
-    SourceTable = ParCenter;
-    AccessByPermission = page PCList = X;
-    AdditionalSearchTerms = 'PCList';
-    CardPageId = PCCard;
+
+
     layout
     {
         area(Content)
         {
-            repeater(control)
+            group(GroupName)
             {
-                field(ID; Rec.ID)
+                field("Series Number"; Rec."Series Number")
                 {
                     ApplicationArea = All;
-
                 }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
-
                 }
-                field(Relation; Rec.Relation)
-                {
-                    ApplicationArea = All;
-
-                }
-                field(FreePlace; Rec.FreePlace)
-                {
-                    ApplicationArea = All;
-
-                }
-                field(Identifier; Rec.Identifier)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-            }
-        }
-    }
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
+                field(ParkingCenter; Rec."Parking Center")
+                {
+                    ApplicationArea = All;
+                }
+                field(ParkingCenterName; Rec."Parking Center Name")
+                {
+                    ApplicationArea = All;
+                }
+                field(LocationName; Rec."Location Name")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
     }
