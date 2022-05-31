@@ -28,4 +28,15 @@ page 59804 "DHT Parking Centers"
             }
         }
     }
+
+    procedure GetSelectionFilter() Result: Text
+    var
+        DHTParkingCenter: Record "DHT Parking Center";
+        SelectionFilterManagement: Codeunit SelectionFilterManagement;
+        RecordRef: RecordRef;
+    begin
+        CurrPage.SetSelectionFilter(DHTParkingCenter);
+        RecordRef.GetTable(DHTParkingCenter);
+        Result := SelectionFilterManagement.GetSelectionFilter(RecordRef, DHTParkingCenter.FieldNo(ID));
+    end;
 }

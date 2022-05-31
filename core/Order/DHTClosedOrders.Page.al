@@ -47,4 +47,15 @@ page 59811 "DHT Closed Orders"
             }
         }
     }
+
+    procedure GetSelectionFilter() Result: Text
+    var
+        DHTOrder: Record "DHT Order";
+        SelectionFilterManagement: Codeunit SelectionFilterManagement;
+        RecordRef: RecordRef;
+    begin
+        CurrPage.SetSelectionFilter(DHTOrder);
+        RecordRef.GetTable(DHTOrder);
+        Result := SelectionFilterManagement.GetSelectionFilter(RecordRef, DHTOrder.FieldNo("ID"));
+    end;
 }

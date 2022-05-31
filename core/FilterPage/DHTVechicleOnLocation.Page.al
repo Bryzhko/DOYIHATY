@@ -17,15 +17,55 @@ page 59813 "DHT Vechicle On Location"
             {
                 Caption = 'Filters';
 
-                field(LocationFilter; LocationID)
+                field(LocationIDFilter; LocationIDFilter)
                 {
                     ApplicationArea = All;
                     Caption = 'Location';
+                    ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
                         ResetView();
                         UpdateActionVisible();
+                        Clear(ParkingCenterFilter);
+                    end;
+
+                    trigger OnLookup(var Text: Text): Boolean
+                    var
+                        DHTLocations: Page "DHT Locations";
+                    begin
+                        DHTLocations.LookupMode(true);
+                        if DHTLocations.RunModal() = Action::LookupOK then begin
+                            Text := DHTLocations.GetSelectionFilter();
+                            exit(true);
+                        end;
+                    end;
+                }
+
+                field(ParkingCenterIDFilter; ParkingCenterFilter)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Parking Center';
+
+                    trigger OnValidate()
+                    begin
+                        ResetView();
+                        UpdateActionVisible();
+                    end;
+
+                    trigger OnLookup(var Text: Text): Boolean
+                    var
+                        DHTParkingCenter: Record "DHT Parking Center";
+                        DHTParkingCenters: Page "DHT Parking Centers";
+                    begin
+                        DHTParkingCenter.SetFilter("Location ID", LocationIDFilter);
+                        DHTParkingCenters.SetTableView(DHTParkingCenter);
+                        DHTParkingCenters.SetRecord(DHTParkingCenter);
+                        DHTParkingCenters.LookupMode(true);
+                        if DHTParkingCenters.RunModal() = Action::LookupOK then begin
+                            Text := DHTParkingCenters.GetSelectionFilter();
+                            exit(true);
+                        end;
                     end;
                 }
 
@@ -88,7 +128,7 @@ page 59813 "DHT Vechicle On Location"
     }
 
     var
-        LocationID: Integer;
+        LocationIDFilter, ParkingCenterFilter : Text;
         VechicleType: Enum "DHT Vechicle Type";
         ShowResultVisible, MatrixVisible : Boolean;
 
@@ -125,14 +165,15 @@ page 59813 "DHT Vechicle On Location"
     var
         DHTVechicle: Record "DHT Vechicle";
     begin
-        DHTVechicle.SetRange(Location, LocationID);
+        DHTVechicle.SetFilter(Location, LocationIDFilter);
+        DHTVechicle.SetFilter("Parking Center ID", ParkingCenterFilter);
         DHTVechicle.SetRange(Type, VechicleType);
         DHTVechicle.SetAutoCalcFields("Parking Center Name");
         if DHTVechicle.FindSet() then
             repeat
                 Rec.Init();
                 Rec.ID += 1;
-                Rec."Parking Center ID" := DHTVechicle."Parking Center";
+                Rec."Parking Center ID" := DHTVechicle."Parking Center ID";
                 Rec."Parking Center Name" := DHTVechicle."Parking Center Name";
                 Rec."Vechicle Series Number" := DHTVechicle."Series Number";
                 Rec."Vechicle Name" := DHTVechicle.Name;
@@ -143,6 +184,6 @@ page 59813 "DHT Vechicle On Location"
 
     local procedure UpdateActionVisible()
     begin
-        ShowResultVisible := (LocationID <> 0) and (Rec.IsEmpty());
+        ShowResultVisible := (LocationIDFilter <> '') and (Rec.IsEmpty());
     end;
 }

@@ -32,7 +32,7 @@ table 59801 "DHT Order"
         field(40; "Vechicle Series Number"; Code[20])
         {
             Caption = 'Vechicle Series Number';
-            TableRelation = "DHT Vechicle"."Series Number" where("Parking Center" = field("Parking Center ID"));
+            TableRelation = "DHT Vechicle"."Series Number" where("Parking Center ID" = field("Parking Center ID"));
 
             trigger OnValidate()
             begin

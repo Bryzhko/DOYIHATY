@@ -15,7 +15,7 @@ page 59812 "DHT Customer Orders"
             {
                 Caption = 'Filters';
 
-                field("Customer No."; CustomerNo)
+                field("Customer No."; CustomerNoFilter)
                 {
                     ApplicationArea = All;
                     Caption = 'Customer No.';
@@ -28,9 +28,13 @@ page 59812 "DHT Customer Orders"
 
                     trigger OnLookup(var Text: Text): Boolean
                     var
-
+                        CustomerList: Page "Customer List";
                     begin
-                        
+                        CustomerList.LookupMode(true);
+                        if CustomerList.RunModal() = Action::LookupOK then begin
+                            Text := CustomerList.GetSelectionFilter();
+                            exit(true);
+                        end;
                     end;
                 }
                 field(Closed; ClosedFilter)
@@ -112,7 +116,7 @@ page 59812 "DHT Customer Orders"
     }
 
     var
-        CustomerNo: Code[20];
+        CustomerNoFilter: Text;
         ClosedFilter: Boolean;
         ShowResultVisible, MatrixVisible : Boolean;
 
@@ -149,7 +153,7 @@ page 59812 "DHT Customer Orders"
     var
         DHTOrder: Record "DHT Order";
     begin
-        DHTOrder.SetRange("Customer No.", CustomerNo);
+        DHTOrder.SetFilter("Customer No.", CustomerNoFilter);
         DHTOrder.SetRange(Closed, ClosedFilter);
         DHTOrder.SetAutoCalcFields("Vechicle Name", "Vechicle Type", "Parking Center Name", "Location Name");
         if DHTOrder.FindSet() then
@@ -172,6 +176,6 @@ page 59812 "DHT Customer Orders"
 
     local procedure UpdateActionVisible()
     begin
-        ShowResultVisible := (CustomerNo <> '') and (Rec.IsEmpty());
+        ShowResultVisible := (CustomerNoFilter <> '') and (Rec.IsEmpty());
     end;
 }

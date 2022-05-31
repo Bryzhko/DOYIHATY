@@ -29,4 +29,11 @@ table 59800 "DHT Location"
             Clustered = true;
         }
     }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; Name, SlotForTruck)
+        {
+        }
+    }
 }

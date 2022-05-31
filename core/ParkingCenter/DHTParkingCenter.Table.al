@@ -53,6 +53,13 @@ table 59802 "DHT Parking Center"
         }
     }
 
+    fieldgroups
+    {
+        fieldgroup(DropDown; Name, "Location Name", Identifier)
+        {
+        }
+    }
+
     local procedure DefineIdentifier()
     begin
         Identifier := UpperCase(Name);

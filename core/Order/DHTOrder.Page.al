@@ -19,7 +19,8 @@ page 59809 "DHT Order"
 
                     trigger OnValidate()
                     begin
-                        UpdateVisibility();
+                        if Rec."Customer No." <> xRec."Customer No." then
+                            UpdateVisibility();
                     end;
                 }
                 field("Customer Name"; Rec."Customer Name")
@@ -38,7 +39,11 @@ page 59809 "DHT Order"
 
                     trigger OnValidate()
                     begin
-                        UpdateVisibility();
+                        if Rec."Location ID" <> xRec."Location ID" then begin
+                            Rec.Validate("Parking Center Name", '');
+                            Rec.Validate("Vechicle Series Number", '');
+                            UpdateVisibility();
+                        end;
                     end;
                 }
                 field("Location Name"; Rec."Location Name")
@@ -56,7 +61,10 @@ page 59809 "DHT Order"
 
                     trigger OnValidate()
                     begin
-                        UpdateVisibility();
+                        if Rec."Parking Center ID" <> xRec."Parking Center ID" then begin
+                            Rec.Validate("Vechicle Series Number", '');
+                            UpdateVisibility();
+                        end;
                     end;
                 }
                 field("Parking Center Name"; Rec."Parking Center Name")
@@ -92,9 +100,11 @@ page 59809 "DHT Order"
 
                     trigger OnValidate()
                     begin
-                        ValidateDate();
-                        Rec.Validate(Amount, GetAmount());
-                        UpdateVisibility();
+                        if Rec."Starting Date" <> xRec."Starting Date" then begin
+                            ValidateDate();
+                            Rec.Validate(Amount, GetAmount());
+                            UpdateVisibility();
+                        end;
                     end;
                 }
                 field("Ending Date"; Rec."Ending Date")
@@ -104,9 +114,11 @@ page 59809 "DHT Order"
 
                     trigger OnValidate()
                     begin
-                        ValidateDate();
-                        Rec.Validate(Amount, GetAmount());
-                        UpdateVisibility();
+                        if Rec."Ending Date" <> xRec."Ending Date" then begin
+                            ValidateDate();
+                            Rec.Validate(Amount, GetAmount());
+                            UpdateVisibility();
+                        end;
                     end;
                 }
             }

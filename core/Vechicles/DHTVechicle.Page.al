@@ -25,7 +25,7 @@ page 59805 "DHT Vechicle"
                 {
                     ApplicationArea = All;
                 }
-                field(ParkingCenter; Rec."Parking Center")
+                field(ParkingCenter; Rec."Parking Center ID")
                 {
                     ApplicationArea = All;
                 }

@@ -26,7 +26,7 @@ page 59806 "DHT Vechicles"
                 {
                     ApplicationArea = All;
                 }
-                field(ParkingCenter; Rec."Parking Center")
+                field(ParkingCenter; Rec."Parking Center ID")
                 {
                     ApplicationArea = All;
                 }
@@ -75,4 +75,15 @@ page 59806 "DHT Vechicles"
             }
         }
     }
+
+    procedure GetSelectionFilter() Result: Text //TODO: Remove if not needed
+    var
+        DHTVechicle: Record "DHT Vechicle";
+        SelectionFilterManagement: Codeunit SelectionFilterManagement;
+        RecordRef: RecordRef;
+    begin
+        CurrPage.SetSelectionFilter(DHTVechicle);
+        RecordRef.GetTable(DHTVechicle);
+        Result := SelectionFilterManagement.GetSelectionFilter(RecordRef, DHTVechicle.FieldNo("Series Number"));
+    end;
 }

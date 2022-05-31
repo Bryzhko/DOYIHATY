@@ -1,4 +1,4 @@
-page 59801 "DHT Location List"
+page 59801 "DHT Locations"
 {
     ApplicationArea = All;
     Caption = 'Locations';
@@ -27,4 +27,15 @@ page 59801 "DHT Location List"
             }
         }
     }
+
+    procedure GetSelectionFilter() Result: Text
+    var
+        DHTLocation: Record "DHT Location";
+        SelectionFilterManagement: Codeunit SelectionFilterManagement;
+        RecordRef: RecordRef;
+    begin
+        CurrPage.SetSelectionFilter(DHTLocation);
+        RecordRef.GetTable(DHTLocation);
+        Result := SelectionFilterManagement.GetSelectionFilter(RecordRef, DHTLocation.FieldNo("ID"));
+    end;
 }

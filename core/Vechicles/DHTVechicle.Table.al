@@ -17,7 +17,7 @@ table 59803 "DHT Vechicle"
         {
             Caption = 'Vechicle Type';
         }
-        field(40; "Parking Center"; Integer)
+        field(40; "Parking Center ID"; Integer)
         {
             Caption = 'Parking Center ID';
             TableRelation = "DHT Parking Center".ID;
@@ -34,20 +34,20 @@ table 59803 "DHT Vechicle"
         {
             Caption = 'Parking Center';
             FieldClass = FlowField;
-            CalcFormula = lookup("DHT Parking Center".Name where(ID = field("Parking Center")));
+            CalcFormula = lookup("DHT Parking Center".Name where(ID = field("Parking Center ID")));
             Editable = false;
         }
         field(60; Location; Integer)
         {
             Caption = 'Location';
             FieldClass = FlowField;
-            CalcFormula = lookup("DHT Parking Center"."Location ID" where(ID = field("Parking Center")));
+            CalcFormula = lookup("DHT Parking Center"."Location ID" where(ID = field("Parking Center ID")));
             Editable = false;
         }
         field(70; "Location Name"; Text[100])
         {
             Caption = 'Location Name';
-            TableRelation = "DHT Parking Center"."Location Name" where(ID = field("Parking Center"));
+            TableRelation = "DHT Parking Center"."Location Name" where(ID = field("Parking Center ID"));
             Editable = false;
         }
     }
@@ -57,6 +57,13 @@ table 59803 "DHT Vechicle"
         key(PK; "Series Number")
         {
             Clustered = true;
+        }
+    }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; Name, Type, "Parking Center ID")
+        {
         }
     }
 
